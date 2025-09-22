@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scaly - Music Learning App - Vilma Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Google Sans Code';
+            src: url('Google_Fonts/GoogleSansCode-VariableFont_wght.ttf') format('truetype');
+            font-weight: 100 900;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Google Sans Code';
+            src: url('Google_Fonts/GoogleSansCode-Italic-VariableFont_wght.ttf') format('truetype');
+            font-weight: 100 900;
+            font-style: italic;
+        }
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0 4rem 0;
+            text-align: center;
+            background: #ffffff;
+        }
+
+        .hero h1 {
+            font-family: var(--font-primary);
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--text-secondary);
+        }
+
+
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .meta-item {
+            text-align: center;
+            background: #f8f9fa;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+        }
+
+        .meta-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            max-width: none;
+        }
+
+        .gallery-caption h3 {
+            font-family: var(--font-primary);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-caption p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* User Flow Section */
+        .user-flow-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .user-flow-section h2 {
+            font-family: var(--font-primary);
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .user-profiles h2 {
+            font-family: var(--font-primary);
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .user-profiles .section-description {
+            margin-bottom: 3rem;
+        }
+
+        .user-flow-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .user-flow-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: contain;
+        }
+
+        /* User Profiles Section */
+        .user-profiles {
+            padding: 4rem 0;
+        }
+
+        /* Design System Section */
+        .design-system-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .design-system-section h2 {
+            font-family: var(--font-primary);
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .design-system-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            padding: 3rem;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .design-system-container:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+        }
+
+        .design-system-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: contain;
+        }
+
+        /* User Screens Section */
+        .user-screens-section {
+            padding: 4rem 0;
+            background: #ffffff;
+        }
+
+        .user-screens-section h2 {
+            font-family: var(--font-primary);
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .user-screens-container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .user-screens-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: contain;
+        }
+
+
+
+        .profiles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .profile-image-container {
+            max-width: 100%;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: contain;
+        }
+
+
+        /* Details Section */
+        .details-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .details-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .details-content p {
+            font-size: 1rem;
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .process-steps {
+            list-style: none;
+            padding: 0;
+        }
+
+        .process-steps li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e9ecef;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .process-steps li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        .process-steps li:last-child {
+            border-bottom: none;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .project-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .user-flow-section h2 {
+                font-size: 2rem;
+            }
+            
+
+            .design-system-section h2,
+            .user-screens-section h2 {
+                font-size: 2rem;
+            }
+            
+            .design-system-container {
+                padding: 1.5rem;
+            }
+
+            .profiles-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .profile-image {
+                border-radius: 8px;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                line-height: 1.6;
+            }
+
+            .project-meta {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .meta-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .user-screens-container,
+            .user-flow-container {
+                padding: 0;
+            }
+
+            .user-screens-image,
+            .user-flow-image {
+                border-radius: 8px;
+            }
+
+            .section-description {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .details-section {
+                padding: 3rem 0;
+            }
+
+            .details-content h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .details-content p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .process-steps li {
+                font-size: 1rem;
+                line-height: 1.5;
+                margin-bottom: 1.5rem;
+            }
+
+            .project-navigation {
+                padding: 30px 0;
+            }
+
+            .project-nav-title {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .project-nav-grid {
+                gap: 1rem;
+                justify-content: center;
+            }
+
+            .project-nav-item {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .user-screens-section h2,
+            .user-flow-section h2,
+            .design-system-section h2,
+            .user-profiles h2 {
+                font-size: 1.8rem;
+            }
+
+            .project-nav-grid {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .project-nav-item {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Vilma</a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Scaly</h1>
+            <p>A comprehensive music learning app designed to make scale practice engaging, visual, and interactive. Built with modern UI principles and thoughtful user experience design to help both students and teachers master the building blocks of music.</p>
+            <p class="work-subtitle" style="font-size: 0.9rem;">View full project on <a href="https://www.figma.com/design/Jy1pbJYT9X0Aa1dCpMkz8k/Music-App-Project?node-id=147-8896&t=qEap0MsQabgxYX1k-1" target="_blank" class="figma-link" rel="noopener noreferrer">Figma →</a></p>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Category</div>
+                    <div class="meta-value">Mobile App Design</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Year</div>
+                    <div class="meta-value">2025</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Tools</div>
+                    <div class="meta-value">Figma, User Research</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- User Screens Section -->
+    <section class="user-screens-section">
+        <div class="container">
+            <h2>User Screens</h2>
+            <p class="section-description">Complete user interface screens showcasing the full app experience from onboarding to advanced practice sessions</p>
+            <div class="user-screens-container">
+                <img src="scaly user screen.png" alt="Scaly User Screens" class="user-screens-image">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- User Flow Section -->
+    <section class="user-flow-section">
+        <div class="container">
+            <h2>Final User Flow</h2>
+            <p class="section-description">The final user flow showing the complete journey from onboarding to advanced practice sessions. This version represents the culmination of multiple iterations and refinements based on user testing and client feedback.</p>
+            <div class="user-flow-container">
+                <img src="user flow scaly.jpg" alt="Scaly User Flow" class="user-flow-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- User Profiles Section -->
+    <section class="user-profiles">
+        <div class="container">
+            <h2>Personas</h2>
+            <p class="section-description">Based on comprehensive market research and user interviews, I developed detailed personas representing the target audience for Scaly. The research revealed key insights about music education challenges and user needs across different demographics.</p>
+            <div class="profiles-grid">
+                <div class="profile-image-container">
+                    <img src="UX Persona 1.png" alt="UX Persona 1" class="profile-image">
+                </div>
+                <div class="profile-image-container">
+                    <img src="UX Persona 2.png" alt="UX Persona 2" class="profile-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design System Section -->
+    <section class="design-system-section">
+        <div class="container">
+            <h2>Design System</h2>
+            <p class="section-description">Complete design system showcasing typography, color palette, components, and UI patterns for consistent user experience</p>
+            <div class="design-system-container">
+                <img src="design system.png" alt="Scaly Design System" class="design-system-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="details-section">
+        <div class="container">
+            <div class="details-grid">
+                <div class="details-content">
+                    <h3>Project Overview</h3>
+                    <p>Scaly addresses the gap between traditional music education and modern learning preferences. The app combines gamification, visual learning, and structured practice to make scale mastery accessible and engaging for both students and educators.</p>
+                    
+                    <h3>Design Process</h3>
+                    <ul class="process-steps">
+                        <li>User research and persona development</li>
+                        <li>Information architecture and user flow mapping</li>
+                        <li>Complete user interface design and screen development</li>
+                        <li>UI component design and design system creation</li>
+                        <li>Interactive prototyping and user testing</li>
+                        <li>Visual design refinement and accessibility considerations</li>
+                    </ul>
+                </div>
+                
+                <div class="details-content">
+                    <h3>Key Features</h3>
+                    <p>The app includes interactive note selection grids, progress tracking with visual feedback, customizable practice flows, and a comprehensive library of premade exercises. The interface adapts to different skill levels and learning preferences.</p>
+                    
+                    <h3>Client Collaboration</h3>
+                    <p>The design showcases a complete user experience from initial user flow mapping to final interface implementation, with iterative refinements based on client feedback throughout the development process.</p>
+                    
+                    <h3>Technical Approach</h3>
+                    <p>Built with modern design principles including clean typography, intuitive navigation, and responsive layouts. The design system ensures consistency across all screens while maintaining the flexibility needed for diverse musical content.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Navigation -->
+    <section class="project-navigation">
+        <div class="project-nav-container">
+            <h3 class="project-nav-title">Explore More Projects</h3>
+            <div class="project-nav-grid">
+                <a href="index.html" class="project-nav-item home-nav">
+                    <span class="nav-item-text">Home</span>
+                </a>
+            </div>
+            <div class="project-nav-grid">
+                <a href="mobile-app-logos.html" class="project-nav-item">
+                    <span class="nav-item-text">Mobile App Logos</span>
+                </a>
+                <a href="commission-illustrations.html" class="project-nav-item">
+                    <span class="nav-item-text">Commission Illustrations</span>
+                </a>
+                <a href="personal-work.html" class="project-nav-item">
+                    <span class="nav-item-text">Fashion Design</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Vilma. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
